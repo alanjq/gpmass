@@ -24,4 +24,15 @@ blogRouter.get('/', async function (req, res, next) {
     }
 })
 
+blogRouter.post('/', async function (req, res, next) {
+    if (req.body.title && req.body.author && req.body.article) {
+        res.json({
+            result: await BlogController.createBlogPost(req.body),
+            success: true
+        })
+    } else {
+        res.json({ result: 'All fields are required.', success: false })
+    }
+})
+
 module.exports = { blogRouter }
