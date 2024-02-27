@@ -36,6 +36,17 @@ async function searchAllContent(searchValue) {
     return results
 }
 
+async function createBlogPost(blogpost) {
+    let myQuery = "CALL create_blog_post(?,?,?,@result)";
+    const results = await db.query(myQuery, [blogpost.title, blogpost.article, blogpost.author], (error, result) => {
+        if (error) {
+            console.log("Error:", error);
+        } else {
+            console.log("Nuevo ID post:", result);
+        }
+    })
+    return results
+}
 
 module.exports = {
     getBlogPosts,
@@ -43,5 +54,6 @@ module.exports = {
     searchByAuthor,
     searchByArticle,
     getById,
-    searchAllContent
+    searchAllContent,
+    createBlogPost,
 }
