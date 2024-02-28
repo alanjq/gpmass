@@ -1,7 +1,7 @@
 
 -- Call to create blog post
-CALL create_blog_post('Stored procedure creado', 'Primera llamada del stored procedure.', 'demo', @newBlogPost);
-select * from blog_post where id= @newBlogPost
+CALL create_blog_post("Désolé pour le retard de l'envoi", 'Nunc semper hendrerit mauris, sit amet consequat eros pellentesque at. Praesent viverra ornare nunc vel varius. Sed non sapien nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque imperdiet consequat semper. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum aliquam pharetra purus, gravida faucibus diam. Praesent eget tellus posuere augue feugiat feugiat vel vitae nulla. Vestibulum eu dui aliquam massa facilisis molestie.', 'demo', @newBlogPost);
+select * from blog_post where id= @newBlogPost;
 
-CALL create_blog_post('Stored ejecutado nuevamente', 'Segunda entrada utilizando un stored procedure.', 'demo', @newBlogPost);
-select * from blog_post where id= @newBlogPost
+CALL create_blog_post("J'étais occupé avec le travail", 'Suspendisse tempus pulvinar velit, bibendum vulputate leo fringilla eu. Vivamus consectetur nunc ut ante feugiat, pulvinar auctor elit pharetra. Quisque quis ultricies justo. Quisque at malesuada nibh. Nam volutpat cursus molestie. Nunc vitae pulvinar ligula, vel scelerisque orci. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris euismod pellentesque orci et laoreet. Praesent odio dui, sollicitudin vel consequat vel, auctor sit amet tellus. Nunc lectus risus, accumsan in consectetur nec, ultricies at felis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.', 'demo', @newBlogPost);
+select * from blog_post where id= @newBlogPost;
