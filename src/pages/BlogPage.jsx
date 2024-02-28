@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom"
 import { useFetch } from "../hooks/useFetch"
-import { formatDate } from "../shared/functions"
+import { API_URL, formatDate } from "../shared/functions"
 
 export default function BlogPage() {
     let { postId } = useParams()
 
-    const { data, error, loading } = useFetch(`http://localhost:3000/blog?id=${postId}`)
+    const { data, error, loading } = useFetch(`${API_URL}/blog?id=${postId}`)
 
     if (isNaN(postId)) {
         return <div>Select a post from the list.</div>
