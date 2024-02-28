@@ -19,7 +19,7 @@ blogRouter.get('/', async function (req, res, next) {
             res.json({ data: await BlogController.searchByArticle(req.query.article) });
         }
         else if (req.query.id) {
-            res.json({ data: await BlogController.getById(req.query.id)});
+            res.json({ data: await BlogController.getById(req.query.id) });
         }
     } catch (error) {
         console.error('API Error:', error.message);
@@ -27,14 +27,19 @@ blogRouter.get('/', async function (req, res, next) {
     }
 })
 
-blogRouter.post('/', async function (req, res, next) {
-    if (req.body.title && req.body.author && req.body.article) {
-        res.json({
-            result: await BlogController.createBlogPost(req.body),
-            success: true
-        })
-    } else {
-        res.json({ result: 'All fields are required.', success: false })
+blogRouter.post('/',  async function (req, res, next) {
+    try {
+        if (req.body.title && req.body.author && req.body.article) {
+            res.json({
+                result: await BlogController.createBlogPost(req.body),
+                success: true
+            })
+        } else {
+            res.json({ result: 'All fields are required.', success: false })
+        }
+    } catch (error) {
+        console.error('API POST Error:', error.message);
+        next(error);
     }
 })
 
