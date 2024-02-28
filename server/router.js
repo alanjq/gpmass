@@ -18,6 +18,9 @@ blogRouter.get('/', async function (req, res, next) {
         else if (req.query.article) {
             res.json({ data: await BlogController.searchByArticle(req.query.article) });
         }
+        else if (req.query.id) {
+            res.json({ data: await BlogController.getById(req.query.id)});
+        }
     } catch (error) {
         console.error('API Error:', error.message);
         next(error);
